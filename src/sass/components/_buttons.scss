@@ -1,0 +1,59 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+
+.Button {
+	display: inline-block;
+	@include flex(center, center, row);
+	cursor: pointer;
+	&_size_large {
+		width: 25.5rem;
+		height: 4rem;
+		border-radius: 5rem;
+		box-shadow: var(--box-shadow-primary);
+	}
+    &_size_normal{
+        width: 16.5rem;
+		height: 5rem;
+		border-radius: 5rem;
+		box-shadow: var(--box-shadow-primary);  
+    }
+	&_color_white {
+		background-color: var(--clr-neutral-300);
+		color: var(--clr-secondary-300);
+		font-family: var(--ff-bold);
+		font-size: var(--fs-300);
+		transition: color 0s ease, background-color 0.3s ease;
+		&:focus,
+		&:hover {
+			color: var(--clr-neutral-300);
+			background-color: var(--clr-accent-300);
+			transition: color 0.25s ease, background-color 0.3s ease;
+		}
+	}
+    &_color_orange{
+        background-color: var(--clr-secondary-300);
+		color: var(--clr-neutral-300);
+		font-family: var(--ff-black);
+		font-size: var(--fs-600);
+		transition: color 0s ease, background-color 0.3s ease;
+		&:focus,
+		&:hover {
+			color: var(--clr-neutral-300);
+			background-color: var(--clr-accent-300);
+			transition: color 0.25s ease, background-color 0.3s ease;
+		}
+    }
+	&_color_green {
+		background-color: var(--clr-accent-300);
+		color: var(--clr-neutral-300);
+		font-family: var(--ff-black);
+		font-size: var(--fs-600);
+		transition: color 0s ease, background-color 0.3s ease;
+		&:focus,
+		&:hover {
+			color: var(--clr-neutral-300);
+			background-color: hsl(36, 99%, 61%);
+			transition: color 0.25s ease, background-color 0.3s ease;
+		}
+	}
+}

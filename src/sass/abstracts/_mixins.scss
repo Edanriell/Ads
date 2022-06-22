@@ -1,0 +1,48 @@
+@mixin container($width, $padding-left, $padding-right) {
+	width: $width;
+	padding-left: $padding-left;
+	padding-right: $padding-right;
+	margin: 0 auto;
+}
+@mixin flex($align-items, $justify-content, $flex-direction) {
+	display: flex;
+	align-items: $align-items;
+	justify-content: $justify-content;
+	flex-direction: $flex-direction;
+}
+@mixin leaf($url, $width, $height, $top, $left) {
+	content: "";
+	position: absolute;
+	top: $top;
+	left: $left;
+	background: url(#{$url}) no-repeat center;
+	width: $width;
+	height: $height;
+}
+@mixin listNumber($number) {
+	content: "#{$number}";
+	display: inline-block;
+	width: 40px;
+	height: 40px;
+	background-color: #FFF;
+	box-shadow: var(--box-shadow-primary);
+	margin-right: 2rem;
+	flex-shrink: 0;
+	flex-grow: 0;
+	border-radius: 50%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	color: var(--clr-primary-300);
+	font-family: var(--ff-medium);
+	font-size: var(--fs-400);
+}
+@mixin footerIcon($url, $width, $height) {
+	content: "";
+	display: inline-block;
+	width: $width;
+	height: $height;
+	background-color: red;
+	margin-right: 1rem;
+	background: svg-load("#{$url}", fill="#FFF") no-repeat center;
+}

@@ -1,0 +1,81 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+
+.AdsPlacement {
+    background-color: var(--clr-neutral-550);
+    &-Content {
+        padding-top: 6rem;
+        padding-bottom: 12rem;
+    }
+    &-Header {
+        margin-bottom: 5rem;
+    }
+}
+.AdsTypeList {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    row-gap: 4rem;
+    margin-bottom: 4rem;
+    &-Item {
+        box-sizing: border-box;
+        padding: 6rem 5rem 6rem 5rem;
+        display: grid;
+        grid-template-columns: 39rem 55.4rem;
+        background-color: var(--clr-neutral-300);
+        box-shadow: var(--box-shadow-primary);
+        column-gap: 9.4rem;
+    }
+    &-Content {
+        @include flex(flex-start, flex-start, column);
+    }
+    &-SubSectionHeading {
+        font-variant-numeric: lining-nums;
+        color: var(--clr-neutral-800);
+        font-family: var(--ff-medium);
+        letter-spacing: 0.1rem;
+        margin-bottom: 1rem;
+    }
+    &-AdTypeName {
+        font-variant-numeric: lining-nums;
+        font-family: var(--ff-medium);
+        color: var(--clr-primary-300);
+        margin-bottom: 2rem;
+    }
+    &-ImageWrapper {
+        position: relative;
+    }
+    &-Image {
+        width: inherit;
+        height: inherit;
+        object-fit: contain;
+    }
+}
+.AdUniqueAdvantagesList {
+    font-variant-numeric: lining-nums;
+    font-family: var(--ff-medium);
+    color: var(--clr-primary-300);
+    &-Item {
+        @include flex(center, flex-start, row);
+        width: 32rem;
+        margin-bottom: 2rem;
+        &:nth-child(1)::before {
+            @include listNumber(1);
+        }
+        &:nth-child(2)::before {
+            @include listNumber(2);
+        }
+        &:nth-child(3)::before {
+            @include listNumber(3);
+        }
+    }
+}
+.SectionFormOrange {
+    width: 100%;
+    height: 16rem;
+    background-color: var(--clr-secondary-300);
+    @include flex(center, center, column);
+    &-Header {
+        margin-bottom: 1.5rem;
+        color: var(--clr-neutral-300);
+    }
+}

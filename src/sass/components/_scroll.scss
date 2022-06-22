@@ -1,0 +1,21 @@
+.Scroll {
+	position: fixed;
+	bottom: 14rem;
+	right: 7rem;
+	display: none;
+	opacity: 0;
+	&-Button {
+		width: 5rem;
+		height: 5rem;
+		border-radius: 1rem;
+		background: svg-load("../images/icons/chevron-up-solid.svg", fill= "white") center no-repeat
+			var(--clr-secondary-300);
+		background-size: 3rem 3rem;
+		cursor: pointer;
+		box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px, rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
+		transition: background-color 0.3s ease;
+		&:hover {
+			background-color: var(--clr-accent-300);
+		}
+	}
+}

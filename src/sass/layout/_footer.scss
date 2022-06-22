@@ -1,0 +1,30 @@
+@use "../abstracts/mixins" as *;
+
+.Footer {
+	padding-top: 4rem;
+	padding-bottom: 4rem;
+	background-color: var(--clr-secondary-300);
+	@include flex(center, center, row);
+	&-Contacts {
+		font-variant-numeric: lining-nums;
+		@include flex(center, center, row);
+		gap: 6rem;
+		color: var(--clr-neutral-300);
+	}
+	&-ContactPhone {
+		font-size: var(--fs-400);
+		font-family: var(--ff-semiBold);
+		@include flex(center, center, row);
+		&::before {
+            @include footerIcon("../images/icons/phone-solid.svg", 18px, 12px);
+        }
+	}
+	&-ContactEmail {
+		font-size: var(--fs-400);
+		font-family: var(--ff-regular);
+		@include flex(center, center, row);
+		&::before {
+			@include footerIcon("../images/icons/envelope-solid.svg", 15px, 11px);
+		}
+	}
+}

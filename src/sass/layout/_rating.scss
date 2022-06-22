@@ -1,0 +1,128 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/placeholders" as *;
+
+.Rating {
+    padding-top: 6rem;
+    padding-bottom: 5rem;
+    position: relative;
+    @include flex(center, flex-start, column);
+    &-Header {
+        margin-bottom: 2rem;
+    }
+    &-Text {
+        width: 60rem;
+        margin-bottom: 4rem;
+        text-align: center;
+        font-size: var(--fs-300);
+        font-family: var(--ff-regular);
+        color: var(--clr-primary-300);
+    }
+    &::before{
+        @include leaf("../images/bg-leaf-1.png", 13rem, 13.3rem, 45rem, -5rem);
+    }
+    &::after{
+        @include leaf("../images/bg-leaf-4.png", 11.7rem, 12rem, 5rem, 105rem);
+    }
+}
+.RatingTable {
+    width: 64rem;
+    text-align: left;
+    font-variant-numeric: lining-nums;
+    &-TableHead {
+        color: var(--clr-neutral-900);
+        font-size: var(--fs-500);
+    }
+    &-HeadRow {
+        border-bottom: 0.1rem solid var(--clr-neutral-900);
+        th:nth-child(4) {
+            text-align: right;
+        }
+        th:nth-child(1) {
+            padding-right: 3rem;
+        }
+        th:nth-child(2) {
+            padding-right: 3rem;
+        }
+    }
+    &-HeadItem {
+        font-weight: 300;
+        font-style: normal;
+        font-family: var(--ff-medium);
+        padding-bottom: 1rem;
+    }
+    &-TableBody {
+        font-family: var(--ff-bold);
+        font-size: var(--fs-650);
+    }
+    &-BodyRow {
+        &:nth-child(1) td {
+            padding-top: 1rem;
+        }
+        &:nth-child(1) td:nth-child(4) {
+            text-align: right;
+            &::after {
+                @extend %arrowUp;
+            }
+        }
+        &:nth-child(2) td:nth-child(4) {
+            text-align: right;
+            &::after {
+                @extend %arrowUp;
+            }
+        }
+        &:nth-child(3) td:nth-child(4) {
+            text-align: right;
+            &::after {
+                @extend %arrowDown;
+            }
+        }
+        &:nth-child(4) td:nth-child(4) {
+            text-align: right;
+            &::after {
+                @extend %arrowDown;
+            }
+        }
+        &:nth-child(5) td:nth-child(4) {
+            text-align: right;
+            &::after {
+                @extend %arrowUp;
+            }
+        }
+        &:nth-child(6) td:nth-child(4) {
+            text-align: right;
+            &::after {
+                @extend %arrowDown;
+            }
+        }
+        &:nth-child(7) td:nth-child(4) {
+            text-align: right;
+            &::after {
+                @extend %arrowDown;
+            }
+        }
+        &:nth-child(1) td:nth-child(2) {
+            color: var(--clr-neutral-900);
+        }
+        &:nth-child(2) td:nth-child(2) {
+            color: var(--clr-neutral-900);
+        }
+        &:nth-child(3) td:nth-child(2) {
+            color: var(--clr-neutral-900);
+        }
+        &:nth-child(4) td:nth-child(2) {
+            color: var(--clr-neutral-900);
+        }
+        &:nth-child(5) td:nth-child(2) {
+            color: var(--clr-neutral-900);
+        }
+        &:nth-child(6) td:nth-child(2) {
+            color: var(--clr-neutral-900);
+        }
+        &:nth-child(7) td:nth-child(2) {
+            color: var(--clr-neutral-900);
+        }
+    }
+    &-BodyItem {
+        padding-bottom: 2rem;
+    }
+}

@@ -1,0 +1,32 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/placeholders" as *;
+
+.Header {
+	background-color: var(--clr-secondary-300);
+	padding-bottom: 2rem;
+	padding-top: 2rem;
+	&-Content {
+		@include flex(center, flex-start, row);
+	}
+}
+.MainNavigation {
+	@include flex(center, center, row);
+	&-Wrapper {
+        color: var(--clr-neutral-300);
+	}
+	&-Item {
+        margin-right: 3rem;
+	}
+	&-Link {
+		font-size: var(--fs-300);
+		@extend %hoverEffectLine;
+	}
+}
+.Phone {
+    color: var(--clr-neutral-300);
+    font-size: var(--fs-300); 
+    font-family: var(--ff-bold);
+    font-style: normal;
+    font-variant-numeric: lining-nums;
+    margin-right: auto;
+}

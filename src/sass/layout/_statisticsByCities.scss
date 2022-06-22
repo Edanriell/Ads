@@ -1,0 +1,235 @@
+@use "../abstracts/mixins" as *;
+@use "../abstracts/variables" as *;
+
+.StatisticsByCities {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+    background-color: var(--clr-neutral-550);
+	&-Header {
+        margin-bottom: 4rem;
+	}
+	&-Content {
+        position: relative;
+	}
+}
+.CityList {
+    @include flex(center, space-around , row);
+    margin-bottom: 5rem;
+	&-Item {
+        color: var(--clr-neutral-700);
+        font-family: var(--ff-regular);
+        font-size: var(--fs-500);
+	}
+	&-Button {
+        padding: 1.5rem 2rem 1.5rem 2rem;
+        background-color: var(--clr-neutral-300);
+        box-shadow: var(--box-shadow-primary);
+        border-radius: 0.5rem;
+        transition: background-color 0.3s ease, color 0.3s ease;
+        &:hover {
+            background-color: var(--clr-secondary-300);
+            color: var(--clr-neutral-300);
+            z-index: 3;
+        }
+	}
+	&-ButtonActive {
+        position: relative;
+        background-color: var(--clr-secondary-300);
+        color: var(--clr-neutral-300);
+        z-index: 3;
+        &::before {
+            content: "";
+            position: absolute;
+            bottom: -1rem;
+            left: 50%;
+            width: 2rem;
+            height: 2rem;
+            // border-radius: 0.5rem;
+            background-color: var(--clr-secondary-300);
+            transform: translateX(-50%) rotate(135deg);
+        }
+	}
+}
+.CityStatistics {
+    display: none;
+    opacity: 0;
+    grid-template-columns: 40rem 23rem;
+    column-gap: 6rem;
+    justify-content: center;
+    grid-template-areas: "dataVisualization mainStats";
+	&-DataVisualization {
+        grid-area: dataVisualization;
+	}
+	&-Header {
+        text-transform: uppercase;
+        margin-bottom: 3rem;
+        color: var(--clr-neutral-700);
+        font-family: var(--ff-bold);
+        letter-spacing: 0.15rem;
+	}
+	&-MainStatistics {
+        grid-area: mainStats;
+	}
+    &-Wrapper {
+        height: 312.5px;
+    }
+    &-Active {
+        display: grid;
+        opacity: 1;
+    }
+}
+.DataVisualization {
+    height: 31rem;
+    width: 40rem;
+    background-color: var(--clr-neutral-300);
+    box-shadow: var(--box-shadow-primary);
+    box-sizing: border-box;
+    padding: 3rem 4rem 3rem 4rem;
+    @include flex(flex-start, flex-start, column);
+	&-DataField {
+        margin-bottom: 2rem;
+        @include flex(center, space-between, row);
+        width: 30rem;
+        &:last-child{
+            margin-bottom: 0;
+        }
+	}
+	&-DataLabel {
+        font-variant-numeric: lining-nums;
+        font-family: var(--ff-medium);
+        color: var(--clr-primary-300);
+        font-size: var(--fs-300);
+	}
+    &-MeterWrapper {
+        width: 15rem;
+        @include flex(center, space-between, row);
+    }
+	&-DataMeter {
+        font-variant-numeric: lining-nums;
+        width: 10.4rem;
+        height: 0.4rem;
+        border-radius: 0;
+        background: var(--clr-neutral-550);
+        border: none;
+        &_color_saladGreen::-webkit-meter-optimum-value {
+            background: var(--clr-accent-400);
+        }
+        &_color_saladGreen::-webkit-meter-bar {
+            font-variant-numeric: lining-nums;
+            width: 10.4rem;
+            height: 0.4rem;
+            border-radius: 0;
+            border: none;
+            background: var(--clr-neutral-550);
+        }
+        &_color_purple::-webkit-meter-optimum-value {
+            background: var(--clr-accent-500);
+        }
+        &_color_purple::-webkit-meter-bar {
+            font-variant-numeric: lining-nums;
+            width: 10.4rem;
+            height: 0.4rem;
+            border-radius: 0;
+            border: none;
+            background: var(--clr-neutral-550);
+        }
+        &_color_orange::-webkit-meter-optimum-value {
+            background: var(--clr-accent-600);
+        }
+        &_color_orange::-webkit-meter-bar {
+            font-variant-numeric: lining-nums;
+            width: 10.4rem;
+            height: 0.4rem;
+            border-radius: 0;
+            border: none;
+            background: var(--clr-neutral-550);
+        }
+        &_color_siren::-webkit-meter-optimum-value {
+            background: var(--clr-accent-700);
+        }
+        &_color_siren::-webkit-meter-bar {
+            font-variant-numeric: lining-nums;
+            width: 10.4rem;
+            height: 0.4rem;
+            border-radius: 0;
+            border: none;
+            background: var(--clr-neutral-550);
+        }
+        &_color_red::-webkit-meter-optimum-value {
+            background: var(--clr-accent-800);
+        }
+        &_color_red::-webkit-meter-bar {
+            font-variant-numeric: lining-nums;
+            width: 10.4rem;
+            height: 0.4rem;
+            border-radius: 0;
+            border: none;
+            background: var(--clr-neutral-550);
+        }
+        &_color_saladGreen:-moz-meter-optimum::-moz-meter-bar {
+            background: var(--clr-accent-400);
+        }
+        &_color_purple:-moz-meter-optimum::-moz-meter-bar {
+            background: var(--clr-accent-500);
+        }
+        &_color_orange:-moz-meter-optimum::-moz-meter-bar {
+            background: var(--clr-accent-600);
+        }
+        &_color_siren:-moz-meter-optimum::-moz-meter-bar {
+            background: var(--clr-accent-700);
+        }
+        &_color_red:-moz-meter-optimum::-moz-meter-bar {
+            background: var(--clr-accent-800);
+        }
+    }
+    &-Percents {
+        font-variant-numeric: lining-nums;
+        font-family: var(--ff-bold);
+        &_color_saladGreen {
+            color: var(--clr-accent-400);
+            width: 2.8rem;
+            text-align: left;
+        }
+        &_color_purple {
+            color: var(--clr-accent-500);
+        }
+        &_color_orange {
+            color: var(--clr-accent-600);
+        }
+        &_color_siren {
+            color: var(--clr-accent-700);
+        }
+        &_color_red {
+            color: var(--clr-accent-800);
+        }
+    }
+}
+.MainStatistics {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    row-gap: 4rem;
+	&-Field {
+        @include flex(flex-start, flex-start, column);
+	}
+	&-FieldName {
+        text-transform: uppercase;
+        color: var(--clr-neutral-800);
+        font-family: var(--ff-bold);
+        font-size: var(--fs-400);
+        letter-spacing: 0.2rem;
+	}
+	&-FieldValue {
+        font-variant-numeric: lining-nums;
+        color: var(--clr-primary-300);
+        font-family: var(--ff-bold);
+        font-size: var(--fs-400);
+        margin-top: 1rem;
+	}
+}
+.SectionForm {
+    @include flex(center, center, column);
+    margin-top: 5rem;
+	&-SubHeader {
+        margin-bottom: 1.5rem;
+	}
+}

@@ -1,0 +1,116 @@
+@use "../abstracts/mixins" as *;
+
+.Statistics {
+    @include flex(flex-start, flex-start, column);
+    position: relative;
+    padding-bottom: 6rem;
+    &-Header {
+        position: relative;
+        @include flex(center, flex-start, row);
+        order: 1;
+    }
+    &-MainHeader {
+        color: var(--clr-primary-300);
+        font-family:var(--ff-black);
+        font-size: var(--fs-650);
+        width: 50rem;
+        line-height: 1.2;
+        @include flex(flex-start, center, row);
+        &::before {
+            content: "";
+            display: block;
+            height: 0.4rem;
+            width: 4.2rem;
+            background-color: var(--clr-secondary-300);
+            margin-right: 1rem;
+            margin-top: 1.2rem;
+        }
+    }
+    &-SubHeader {
+        position: absolute;
+        top: 50%;
+        left: 17rem;
+        transform: translateY(-50%);
+        text-transform: uppercase;
+        color: var(--clr-neutral-600);
+        font-family: var(--ff-black);
+        font-size: var(--fs-1000);
+        user-select: none;
+    }
+    &-Leaf1{
+        @include leaf("../images/bg-leaf-2.png", 13rem, 13.3rem, 20rem, -14rem);
+    }
+    &-Leaf2{
+        @include leaf("../images/bg-leaf-3.png", 10.1rem, 10.3rem, 40rem, 102rem);
+    }
+    &::before {
+        content: "";
+        display: block;
+        width: 91.5rem;
+        height: 0.2rem;
+        background: var(--clr-neutral-500);
+        order: 3;
+        margin-left: 3.8rem;
+    }
+}
+.BasicStatistic {
+    display: grid;
+    grid-template-columns: repeat(3, 12rem);
+    column-gap: 13rem;
+    order: 2;
+    margin-bottom: 3rem;
+    margin-top: 7rem;
+    padding-left: 3.8rem;
+    &-Field {
+        @include flex(flex-start, flex-start, column);
+        &::before {
+            content: "";
+            display: block;
+            height: 0.2rem;
+            width: 3rem;
+            background-color: var(--clr-secondary-300);
+        }
+    }
+    &-FieldName {
+        color: var(--clr-neutral-400);
+        text-transform: lowercase;
+        margin-top: 0.5rem;
+    }
+    &-FieldValue {
+        margin-bottom: 0.5rem;
+        order: -1;
+        color: var(--clr-primary-300);
+        font-family: var(--ff-bold);
+        font-size: var(--fs-400);
+        font-variant-numeric: lining-nums;
+    }
+}
+.ExtendedStatistic {
+    order: 4;
+    display: grid;
+    grid-template-columns: repeat(4, 20rem);
+    grid-template-rows: repeat(2, auto);
+    column-gap: 5rem;
+    row-gap: 4rem;
+    margin-top: 3rem;
+    padding-left: 3.8rem;
+    &-Field {
+        @include flex(flex-start, flex-start, column);
+    }
+    &-FieldName {
+        color: var(--clr-primary-300);
+        font-family: var(--ff-semiBold);
+        font-size: var(--fs-400);
+        span {
+            font-family: var(--ff-regular);
+            color: var(--clr-neutral-400);
+        }
+    }
+    &-FieldValue {
+        font-variant-numeric: lining-nums;
+        order: -1;
+        color: var(--clr-secondary-300);
+        font-family: var(--ff-extraBold);
+        font-size: var(--fs-800);
+    }
+}
